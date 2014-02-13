@@ -340,6 +340,7 @@ Select t.object_id Id,
        Left Join sys.dm_db_partition_stats ddps
          On i.object_id = ddps.object_id
          And i.index_id = ddps.index_id
+         And ddps.partition_id = p.partition_id
          And i.type < 2         
  Where t.is_ms_shipped = 0
    And i.object_id > 255
